@@ -92,6 +92,14 @@ public class WeavyUserApiClient {
     public static void main(String[] args) {
         WeavyUserApiClient weavyUserApiClient = new WeavyUserApiClient();
 
+        try {
+            //  Create User
+            weavyUserApiClient.createUser("user-1", "John Doe", "acme");
 
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
