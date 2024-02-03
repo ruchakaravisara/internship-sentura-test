@@ -6,8 +6,8 @@ import java.io.IOException;
 
 public class WeavyUserApiClient {
 
-    private static final String WEAVY_SERVER = "https://{WEAVY-SERVER}";
-    private static final String API_KEY = "{wys_R830thWWfHBkfXvmW17HXn7xOlH04K05hFfo}";
+    private static final String WEAVY_SERVER = "https://1e53e60f0368487b9410658071d6b98b.weavy.io";
+    private static final String API_KEY = "wys_R830thWWfHBkfXvmW17HXn7xOlH04K05hFfo";
 
     private final OkHttpClient client;
 
@@ -94,7 +94,7 @@ public class WeavyUserApiClient {
 
         try {
             //  Create User
-            weavyUserApiClient.createUser("user-1", "John Doe", "acme");
+            weavyUserApiClient.createUser("user-1", "John", "acme");
 
             //  List Users
             String userListResponse = weavyUserApiClient.listUsers();
@@ -105,7 +105,7 @@ public class WeavyUserApiClient {
             System.out.println("User Details: " + userDetailsResponse);
 
             //  Update User
-            weavyUserApiClient.updateUser(1, "Updated Name");
+            weavyUserApiClient.updateUser(1, "saman");
 
             //  Delete User
             weavyUserApiClient.deleteUser(1);
