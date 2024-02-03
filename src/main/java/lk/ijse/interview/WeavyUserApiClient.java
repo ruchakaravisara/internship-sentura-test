@@ -96,7 +96,19 @@ public class WeavyUserApiClient {
             //  Create User
             weavyUserApiClient.createUser("user-1", "John Doe", "acme");
 
+            //  List Users
+            String userListResponse = weavyUserApiClient.listUsers();
+            System.out.println("List of users: " + userListResponse);
 
+            //  Get User Details
+            String userDetailsResponse = weavyUserApiClient.getUserDetails(1);
+            System.out.println("User Details: " + userDetailsResponse);
+
+            //  Update User
+            weavyUserApiClient.updateUser(1, "Updated Name");
+
+            //  Delete User
+            weavyUserApiClient.deleteUser(1);
 
         } catch (IOException e) {
             e.printStackTrace();
