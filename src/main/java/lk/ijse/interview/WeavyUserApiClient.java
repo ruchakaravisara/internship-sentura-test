@@ -75,7 +75,19 @@ public class WeavyUserApiClient {
         }
     }
 
+    public void deleteUser(int userId) throws IOException {
+        String endpoint = WEAVY_SERVER + "/api/users/" + userId;
 
+        Request request = new Request.Builder()
+                .url(endpoint)
+                .header("Authorization", "Bearer " + API_KEY)
+                .delete()
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            System.out.println("Delete User Response: " + response.body().string());
+        }
+    }
 
     public static void main(String[] args) {
         WeavyUserApiClient weavyUserApiClient = new WeavyUserApiClient();
