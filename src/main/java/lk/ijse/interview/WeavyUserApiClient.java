@@ -59,6 +59,21 @@ public class WeavyUserApiClient {
         }
     }
 
+    public void updateUser(int userId, String newName) throws IOException {
+        String endpoint = WEAVY_SERVER + "/api/users/" + userId;
+        String jsonBody = String.format("{ 'name': '%s' }", newName);
+
+        Request request = new Request.Builder()
+                .url(endpoint)
+                .header("Authorization", "Bearer " + API_KEY)
+                .header("Content-Type", "application/json")
+                .patch(RequestBody.create(MediaType.parse("application/json"), jsonBody))
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            System.out.println("Update User Response: " + response.body().string());
+        }
+    }
 
 
 
